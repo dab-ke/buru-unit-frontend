@@ -7,7 +7,8 @@ export default defineConfig({
     port: 5173,
     proxy: {
       '/api': {
-        target: 'http://localhost:3000',
+        target: 'http://localhost:3000', // Local dev
+        // OR: target: 'https://buru-unit-backend.vercel.app',  // Production
         changeOrigin: true,
       },
     },
