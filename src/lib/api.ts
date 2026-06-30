@@ -31,7 +31,7 @@ async function fetchAPI<T>(endpoint: string, options?: RequestInit): Promise<T> 
  * Submit foot measurements and get Buru ID
  */
 export async function submitScan(measurements: ScanRequest): Promise<ScanResponse> {
-  return fetchAPI<ScanResponse>('/scan', {
+  return fetchAPI<ScanResponse>('/api/scan', {
     method: 'POST',
     body: JSON.stringify(measurements),
   })
@@ -41,12 +41,12 @@ export async function submitScan(measurements: ScanRequest): Promise<ScanRespons
  * Health check endpoint (verify backend is running)
  */
 export async function checkHealth(): Promise<{ status: string }> {
-  return fetchAPI('/healthcheck')
+  return fetchAPI('/api/healthcheck')
 }
 
 /**
  * Get user profile by Buru ID
  */
 export async function getProfile(buruId: string): Promise<any> {
-  return fetchAPI(`/profile/${buruId}`)
+  return fetchAPI(`/api/profile/${buruId}`)
 }
